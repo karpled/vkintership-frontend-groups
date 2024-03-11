@@ -1,5 +1,6 @@
 import {
   createHashRouter,
+  createModal,
   createPanel,
   createRoot,
   createView,
@@ -12,9 +13,20 @@ export const DEFAULT_VIEW = "default_view";
 
 export const DEFAULT_VIEW_PANELS = { HOME: "home" } as const;
 
+export const HOME_PANEL_MODALS = {
+  GROUP_FRIENDS: "group-friends",
+} as const;
+
 export const routes = RoutesConfig.create([
   createRoot(DEFAULT_ROOT, [
-    createView(DEFAULT_VIEW, [createPanel(DEFAULT_VIEW_PANELS.HOME, "/", [])]),
+    createView(DEFAULT_VIEW, [
+      createPanel(DEFAULT_VIEW_PANELS.HOME, "/", [
+        createModal(
+          HOME_PANEL_MODALS.GROUP_FRIENDS,
+          `/${HOME_PANEL_MODALS.GROUP_FRIENDS}`
+        ),
+      ]),
+    ]),
   ]),
 ]);
 
