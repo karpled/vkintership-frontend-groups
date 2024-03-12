@@ -83,13 +83,13 @@ const Filters = ({
         selected={filter.privacy === true}
         onClick={handlePrivacyFilter(true)}
       >
-        Открытая
+        Закрытая
       </SubnavigationButton>
       <SubnavigationButton
         selected={filter.privacy === false}
         onClick={handlePrivacyFilter(false)}
       >
-        Закрытая
+        Открытая
       </SubnavigationButton>
       <SubnavigationButton
         selected={filter.has_friends === true}
