@@ -1,21 +1,24 @@
 import React from "react";
+import { Cell, Group, Header, List } from "@vkontakte/vkui";
 
 import type { User } from "../types/index.js";
-import { SimpleCell } from "@vkontakte/vkui";
 
-interface UserListProps extends React.ComponentPropsWithRef<"div"> {
+interface UserListProps extends React.ComponentPropsWithRef<typeof Group> {
   users: User[];
 }
 
 const UserList = ({ users, ...props }: UserListProps): React.ReactElement => {
   return (
-    <div {...props}>
-      {users.map((user) => (
-        <SimpleCell key={user.first_name}>
-          {user.first_name} {user.last_name}
-        </SimpleCell>
-      ))}
-    </div>
+    <Group {...props}>
+      <Header mode="secondary">Общие друзья</Header>
+      <List>
+        {users.map((user) => (
+          <Cell key={user.first_name}>
+            {user.first_name} {user.last_name}
+          </Cell>
+        ))}
+      </List>
+    </Group>
   );
 };
 
